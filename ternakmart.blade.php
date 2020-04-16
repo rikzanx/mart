@@ -3,9 +3,33 @@
 @section('style')
 <link href="{{ asset('plugins/slick/slick.css') }}" rel="stylesheet">
 <link href="{{ asset('plugins/slick/slick-theme.css') }}" rel="stylesheet">
-<link href="{{ asset('css/ternakmart.css') }}" rel="stylesheet">
+<link href="{{ asset('css/landing.css') }}" rel="stylesheet">
 <link href="{{ asset('plugins/animate/animate.min.css') }}" rel="stylesheet">
 <link href="{{ asset('css/beranda-edit.css') }}" rel="stylesheet">
+@endsection
+
+@section('navbar')
+		<li class="nav-item">
+			<a class="nav-link active" href="{{ route('ternakmart.produk') }}">Produk</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="{{ route('tentang-kami') }}">Tentang Kami</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="#blog">Blog</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="#donasi">Donasi</a>
+		</li>
+		@if(Session::has('is_login') && Session::get('is_login') )
+		<li class="nav-item">
+			<a class="nav-link" href="{{ url('logout') }}">Akun Saya</a>
+			</li>
+		@else
+		<li class="nav-item">
+		<a class="nav-link" href="{{ url('login') }}">Login</a>
+		</li>
+		@endif
 @endsection
 
 @section('content')
@@ -352,7 +376,7 @@
 @section('script')
 	<script type="text/javascript" src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('plugins/slick/slick.min.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/ternakmart.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/ternakmart/landing.js') }}"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 		     $('.carousel-invest').slick({
